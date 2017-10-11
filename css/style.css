@@ -48,3 +48,11 @@ tr.day > td {
 tbody tr:nth-child(odd):not(.day) {
     background-color: #eee;
 }
+
+td {
+    padding: 0.25em;
+}
+
+h3.panel-title {
+    font-size: 2em;
+}
