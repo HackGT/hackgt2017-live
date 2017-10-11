@@ -20,6 +20,7 @@
             }
             }]);
         </script>
+        <script src="./js/sha.js"></script>
     </head>
 
     <body>
@@ -29,7 +30,9 @@
               <a class="navbar-brand nav-link" href="#">HackGT Live</a>
             </div>
               <ul class="nav navbar-nav">
-                <li class="active"><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#schedule">Schedule</a></li>
+                <li><a class="nav-link" href="#scavenger">Scavenger Hunt</a></li>
               </ul>
           </div>
         </nav>
@@ -435,6 +438,124 @@
                     </div>
                 </div>
 
+            </section>
+
+            <section id="scavenger">
+                <h1>Scavenger Hunt</h1>
+                <p>Welcome to HackGT's Scavenger Hunt!</p>
+                <p>Keys are hidden around Klaus, based on the hints here. Find the keys at the locations hinted, and input them here. If you collect all 8, go to ____ for a prize!</p>
+
+                <div id="scavenger-clues">
+                    <ol>
+                        <li>
+                            <p>People knock on me to say hello but lock me up after visitors go.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Something you look out to spy, to watch birds or cars go by, they might be low, they might be high.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>In Rome one’s most famous, the New World’s brings youth. You seek the wellspring that leads to the truth.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>You can go straight up, you can go straight down, on which floor will the clue be found?</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>What goes goes up and down but never moves?</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>For the next clue, think 1, think 2, and you’ll need some paper, too.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>Some like me hot, some like me cold, some like me mild, some like me bold.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                        <li>
+                            <p>I have keys but I don’t open a door. You can use me for files and more.</p>
+                            <div class="input-group">
+                                <input type="text" class="form-control clue-answer" placeholder="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary clue-button" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <script>
+                        var results = [
+                          "7c6caa2869a6a2ee6669ba1737199b38c14fb6c206e81639c73583595c4d4c0c",
+                          "0fcbcfa44803ff24b600a68850a4db94c784f3d4a0a51b9de6d67406203450b5",
+                          "5a5230a54edc62f5004a4ee0bb9660a3e737ab5bb20461ec70440a6ca1f90dbd",
+                          "028f6c0a586d1851683c19e169f764fe1a7be5f18393b928e3e91968380e8de6",
+                          "41f2e4d5df51d13338f5589d273c81aa2fd8e5f9abf4b9dbd8f1acf36988b7d4",
+                          "45ac009a784d333bf81d2b5082d4667b055273cef4a0b1ec97115e096a2639e1",
+                          "d230a83e9e51c361b2564178bdbb2c8d09fd2b35ca31cc75e7822821c19755cf",
+                          "b7a7ad885cef4434b1a0aa1a899ea3a7a9fbd64107a12ba0b84362ab3a8ace5a"
+                        ]
+
+                        var inputs = document.getElementsByClassName('clue-answer');
+                        var buttons = document.getElementsByClassName('clue-button');
+
+                        for (var i = 0; i < inputs.length; i++) {
+                            (function(i){
+                                var thisButton = buttons[i];
+                                var thisInput = inputs[i];
+                                thisButton.onclick = function() {
+                                    var key = thisInput.value.trim().toUpperCase();
+
+                                    if (sha256.hex(key) == results[i]) {
+                                        thisButton.classList.add("btn-success");
+                                        thisButton.disabled = true;
+                                        thisInput.value += "; Success!";
+                                        thisInput.disabled = true;
+                                    } else {
+                                        thisInput.value = "wrong answer!";
+                                    }
+                                }
+                            })(i);
+                        }
+                    </script>
+                </div>
             </section>
 
             <script src="./js/script.js"></script>
