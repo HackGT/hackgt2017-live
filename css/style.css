@@ -60,3 +60,7 @@ h3.panel-title {
 .input-group {
     margin-bottom: 2em;
 }
+
+.navbar {
+    border-radius: 0;
+}
