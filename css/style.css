@@ -1,17 +1,28 @@
-.navbar-blue {
-    background-color: #3BAFDA;
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+h1, h2, h3,  .navbar-brand {
+    font-family: 'VT323', monospace;
+    color: #b4fff3;
+}
+
+.navbar-brand {
+    font-size: 2em;
+}
+
+.navbar-purple {
+    background-color: #2D1A38;
     color: white;
 }
 
-.navbar-blue a {
+.navbar-purple a {
     color: white;
 }
 
-.navbar-blue a:hover {
+.navbar-purple a:hover {
     color: black;
 }
 
-.navbar-blue a:focus {
+.navbar-purple a:focus {
     color: black;
 }
 
@@ -23,6 +34,14 @@
 .welcome {
     margin-top: 0;
     margin-bottom: 0.75em;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+body {
+    background-color: black;
 }
 
 table {
@@ -46,7 +65,7 @@ tr.day > td {
 }
 
 tbody tr:nth-child(odd):not(.day) {
-    background-color: #eee;
+    background-color: #ddd;
 }
 
 td {
@@ -63,4 +82,58 @@ h3.panel-title {
 
 .navbar {
     border-radius: 0;
+}
+
+.alley {
+    position: fixed;
+    top: 0;
+    max-height: 100%;
+    z-index: -5;
+}
+
+.alley-left {
+    left: 0;
+    top: 0;
+}
+
+.alley-right {
+    right: 0;
+    top: 0;
+}
+
+.panel-warning > .panel-heading {
+    background-color: #124D75;
+    border-color: #124D75;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #E53093;
+    border-color: #E53093;
+}
+
+.btn-primary {
+    background-color: #2D1A38;
+    border-color: #2D1A38;
+}
+
+input.form-control:focus {
+    border-color: #2D1A38;
+}
+
+.navbar-header:hover a, .navbar-header:focus a, .navbar-header:active a, .navbar-header a:focus, .navbar-header a:hover, .navbar-header a:active {
+    color: white;
+}
+
+.map {
+    width: 80%;
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.btn-primary:hover {
+    border-color: #E53093;
+    background-color: #E53093;
 }
