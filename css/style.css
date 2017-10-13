@@ -32,8 +32,10 @@ h1, h2, h3,  .navbar-brand {
 }
 
 .welcome {
+    font-weight: normal;
     margin-top: 0;
     margin-bottom: 0.75em;
+    text-align: center;
 }
 
 .no-margin-bottom {
@@ -56,7 +58,7 @@ tr {
 tr.day {
     background-color: #ccc;
     width: 100%;
-    text-decoration: underline;
+    font-weight: bold;
     border-left: solid #444 4px;
 }
 
@@ -70,6 +72,14 @@ tbody tr:nth-child(odd):not(.day) {
 
 td {
     padding: 0.25em;
+}
+
+#schedule .panel-body {
+    overflow-x: scroll;
+}
+
+ul.navbar-nav {
+    margin: initial;
 }
 
 h3.panel-title {
