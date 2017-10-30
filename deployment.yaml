@@ -1,5 +1,5 @@
 git:
-    remote: https://github.com/HackGT/live.git
+    remote: https://github.com/HackGT/hackgt2017-live.git
     branch: master
 
 target_port: 80
